@@ -41,23 +41,46 @@ docker-compose up -d --build app-flask
 
 ```
 
-## Acessar:
+📌 **Validação das rotas – Desafio DevOps 2025**
 
-- Flask: <http://localhost:5000>
-- Node: <http://localhost:3000>
-- Prometheus: <http://localhost:9090>
-- Grafana: <http://localhost:3001> (admin / admin)
+Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatórias**, mais rotas extras úteis para debug e observabilidade.
 
+---
 
-App 1 – Flask (porta 5000)
-URL base: <http://localhost:5000> ou https://<SEU-SERVIÇO>.onrender.com
+## App 1 – Flask (`localhost:5000`)
 
-Rota Método Descrição
-/hello GET Retorna texto fixo: "Hello from Flask!"
-/time GET Retorna hora atual (cache de 10s)
-/metrics GET Exposição Prometheus das métricas
+| Rota                   | Método | Função                                         | Exemplo de Resposta                         |
+|------------------------|--------|-----------------------------------------------|---------------------------------------------|
+| [`/hello`](http://localhost:5000/hello)   | GET    | Texto fixo                                     | `Hello from Flask!`                         |
+| [`/time`](http://localhost:5000/time)     | GET    | Hora atual com cache de **10s** via Redis      | `Tue Apr  7 19:00:00 2025` ou `(cache) ...` |
+| [`/`](http://localhost:5000/)            | GET    | (Extra) Hello + hora atual formatada            | `Olá!! A hora em Python é Tue Apr ...`      |
+| [`/metrics`](http://localhost:5000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `flask_hits_total`             |
+
+---
+
+## App 2 – Node.js (`localhost:3000`)
+
+| Rota                   | Método | Função                                         | Exemplo de Resposta                         |
+|------------------------|--------|-----------------------------------------------|---------------------------------------------|
+| [`/hello`](http://localhost:3000/hello)   | GET    | Texto fixo                                     | `Hello from Node.js!`                       |
+| [`/time`](http://localhost:3000/time)     | GET    | Hora atual com cache de **60s** via Redis      | `Tue Apr  7 19:00:00 2025` ou `(cache) ...` |
+| [`/`](http://localhost:3000/)            | GET    | (Extra) Hello + hora atual formatada            | `👋 Hello! Time now is: 07/04/2025 19:00`    |
+| [`/metrics`](http://localhost:3000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `node_hits_total`              |
+
+---
+
+### Validação manual sugerida:
+
+- Acesse cada link acima e valide o conteúdo da resposta
+- Aguarde o tempo de expiração do cache (`10s` no Flask, `60s` no Node)
+- Refaça a requisição e compare o valor retornado
+
+---
+
+Se quiser, posso gerar esse conteúdo como `docs/rotas.md` para adicionar ao projeto. Deseja?
 
 ## Senha do Grafana
+
 Por padrão, o container oficial do Grafana usa:
 
 Usuário: admin
