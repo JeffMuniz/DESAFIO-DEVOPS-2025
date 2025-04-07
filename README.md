@@ -81,14 +81,14 @@ Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatória
 
 ---
 
-## App 2 – Node.js (`localhost:3000`)
+## App 2 – Node.js (`localhost:3002`)
 
 | Rota                   | Método | Função                                         | Exemplo de Resposta                         |
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
-| [`/hello`](http://localhost:3000/hello)   | GET    | Texto fixo                                     | `Hello from Node.js!`                       |
-| [`/time`](http://localhost:3000/time)     | GET    | Hora atual com cache de  60s  via Redis      | `Hora node` ou `(cache) ...` |
-| [`/`](http://localhost:3000/)            | GET    | (Extra) Hello + hora atual formatada            | `Hora em Java`    |
-| [`/metrics`](http://localhost:3000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `node_hits_total`              |
+| [`/hello`](http://localhost:3002/hello)   | GET    | Texto fixo                                     | `Hello from Node.js!`                       |
+| [`/time`](http://localhost:3002/time)     | GET    | Hora atual com cache de  60s  via Redis      | `Hora node` ou `(cache) ...` |
+| [`/`](http://localhost:3002/)            | GET    | (Extra) Hello + hora atual formatada            | `Hora em Java`    |
+| [`/metrics`](http://localhost:3002/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `node_hits_total`              |
 
 ---
 
