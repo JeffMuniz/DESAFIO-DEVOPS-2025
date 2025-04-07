@@ -8,3 +8,5 @@ services:
     buildCommand: ""
     startCommand: ""
     autoDeploy: true
+    build:
+      context: app-flask
