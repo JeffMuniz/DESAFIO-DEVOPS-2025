@@ -37,22 +37,13 @@
       <li>Prometheus (porta <strong>9090</strong>): <a href="http://localhost:9090" target="_blank">http://localhost:9090</a></li>
       <li>Prometheus coleta métricas das aplicações e do Redis</li>
       <li>Grafana exibe painéis com estatísticas das rotas acessadas e cache hits</li>
-      <li>Apps expõem métricas em <code>/metrics</code></li>
+      <li>aplicações expõem métricas em <code>/metrics</code></li>
     </ul>
 
     <h2>Cache Redis</h2>
     <p>Implementado com Redis. Cada app utiliza um cliente próprio para TTL independente (10s e 60s).</p>
     <p>REDIS_HOST=redis</p>
     
-    <p>Acesse localmente: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
-    <ul>
-      <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
-      <li>Observar TTL, editar e apagar</li>
-    </ul>
-
-    <h2>Acesse tudo pronto no Render</h2>
-    <p><em>Como um extra, está publicado no Render. Pode levar 1–2 minutos para acordar:</em></p>
-    <a href="https://desafio-devops-2025-jhsa.onrender.com" target="_blank">https://desafio-devops-2025-jhsa.onrender.com</a>
 
     <h2>Como rodar localmente</h2>
     <pre><code>git clone https://github.com/JeffMuniz/devops-desafio-2025.git && cd devops-desafio-2025
@@ -65,11 +56,16 @@ docker-compose up -d --build
     <h2>Senha default do container Grafana</h2>
     <p>Usuário: <strong>admin</strong><br>Senha: <strong>admin</strong></p>
     <p>Configuração por variáveis de ambiente para alterar:</p>
-    <pre><code>GF_SECURITY_ADMIN_USER=admin
-GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
+    <pre><code>GF_SECURITY_ADMIN_USER=admin GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
+    <p>Acesse localmente: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+    <ul>
+      <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
+      <li>Observar TTL, editar e apagar</li>
+    </ul>
 
-    <hr/>
-
+    <h2>Acesse tudo pronto no Render</h2>
+    <p><em>Como um extra, está publicado no Render. Pode levar 1–2 minutos para acordar:</em></p>
+    <a href="https://desafio-devops-2025-jhsa.onrender.com" target="_blank">https://desafio-devops-2025-jhsa.onrender.com</a>
     <h2> Rotas públicas ativas no Render</h2>
 
     <h3>App 1 – Flask (Render)</h3>
@@ -79,17 +75,10 @@ GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
       <li><a href="https://desafio-devops-2025-jhsa.onrender.com/time">/time</a>: Hora com cache de 10s</li>
       <li><a href="https://desafio-devops-2025-jhsa.onrender.com/metrics">/metrics</a>: Métricas Prometheus</li>
     </ul>
-
-    <h3>App 2 – Node.js (não publicado no Render)</h3>
-    <ul>
-      <li><a href="#">/</a>: Página Home (não exposta)</li>
-      <li><a href="#">/hello</a>: Texto fixo (não exposto)</li>
-      <li><a href="#">/time</a>: Hora com cache de 60s (não exposto)</li>
-      <li><a href="#">/metrics</a>: Métricas Prometheus (não exposto)</li>
-
-      <li>Grafana e Prometheus não estão publicados via rota pública externa por segurança</li>
-      <li>Apenas a aplicação Flask está exposta (porta padrão 5000 → HTTP)</li>
-    </ul>
+    
+    <hr/>
+    <h3>App 2 – Node.js (não publicado no Render) Grafana e Prometheus não estão publicados via rota pública externa por segurança. Apenas a aplicação Flask está exposta (porta padrão 5000 → HTTP)
+    </h3>
   </div>
 </body>
 </html>
