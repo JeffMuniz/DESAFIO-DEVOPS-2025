@@ -66,7 +66,7 @@ Visualizar expirados ou atuais
 
 ## Validação das rotas – Desafio DevOps 2025
 
-Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatórias**, mais rotas extras úteis para debug e observabilidade.
+Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatórias , mais rotas extras úteis para debug e observabilidade.
 
 ---
 
@@ -75,7 +75,7 @@ Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatóri
 | Rota                   | Método | Função                                         | Exemplo de Resposta                         |
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
 | [`/hello`](http://localhost:5000/hello)   | GET    | Texto fixo                                     | `Hello from Flask!`                         |
-| [`/time`](http://localhost:5000/time)     | GET    | Hora atual com cache de **10s** via Redis      | `Tue Apr  7 19:00:00 2025` ou `(cache) ...` |
+| [`/time`](http://localhost:5000/time)     | GET    | Hora atual com cache de  10s  via Redis      | `Hora Pyhton` ou `(cache) ...` |
 | [`/`](http://localhost:5000/)            | GET    | (Extra) Hello + hora atual formatada            | `Olá!! A hora em Python é Tue Apr ...`      |
 | [`/metrics`](http://localhost:5000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `flask_hits_total`             |
 
@@ -86,8 +86,8 @@ Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatóri
 | Rota                   | Método | Função                                         | Exemplo de Resposta                         |
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
 | [`/hello`](http://localhost:3000/hello)   | GET    | Texto fixo                                     | `Hello from Node.js!`                       |
-| [`/time`](http://localhost:3000/time)     | GET    | Hora atual com cache de **60s** via Redis      | `Tue Apr  7 19:00:00 2025` ou `(cache) ...` |
-| [`/`](http://localhost:3000/)            | GET    | (Extra) Hello + hora atual formatada            | `👋 Hello! Time now is: 07/04/2025 19:00`    |
+| [`/time`](http://localhost:3000/time)     | GET    | Hora atual com cache de  60s  via Redis      | `Hora node` ou `(cache) ...` |
+| [`/`](http://localhost:3000/)            | GET    | (Extra) Hello + hora atual formatada            | `Hora em Java`    |
 | [`/metrics`](http://localhost:3000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `node_hits_total`              |
 
 ---
@@ -98,9 +98,7 @@ Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatóri
 - Aguarde o tempo de expiração do cache (`10s` no Flask, `60s` no Node)
 - Refaça a requisição e compare o valor retornado
 
----
 
-Se quiser, posso gerar esse conteúdo como `docs/rotas.md` para adicionar ao projeto. Deseja?
 
 ## Senha do Grafana
 
@@ -116,4 +114,3 @@ environment:
 
 - GF_SECURITY_ADMIN_USER=admin
 - GF_SECURITY_ADMIN_PASSWORD=admin
-
