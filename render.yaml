@@ -4,9 +4,7 @@ services:
     runtime: docker
     plan: free
     repo: https://github.com/JeffMuniz/DESAFIO-DEVOPS-2025
-    dockerfilePath: app-flask/Dockerfile
+    dockerfilePath: Dockerfile-flask
     buildCommand: ""
     startCommand: ""
     autoDeploy: true
-    build:
-      context: app-flask
