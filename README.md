@@ -29,9 +29,11 @@ Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
 - Grafana exibe painéis com estatísticas das rotas acessadas e cache hits
 - Apps expõem métricas em `/metrics`
 
-## Acesse tudo pronto no Render, pode levar 1 ou 2 minutos pra subir o serviço!
+## Acesse tudo pronto no Render
 
-- Render não suporta build.context no render.yaml, por isso Dockerfile foi duplicado para esse deploy, na raiz em Dockerfile-flask
+- Como um extra eu adicinei ao render, pode levar 1 ou 2 minutos pra subir o serviço!
+
+<https://desafio-devops-2025-jhsa.onrender.com/>
 
 ## Como rodar
 
