@@ -1,10 +1,10 @@
 services:
   - type: web
     name: desafio-devops-2025
-    env: docker
+    runtime: docker
     plan: free
+    repo: https://github.com/JeffMuniz/DESAFIO-DEVOPS-2025
     dockerfilePath: ""
     buildCommand: ""
     startCommand: ""
     autoDeploy: true
-    repo: https://github.com/JeffMuniz/DESAFIO-DEVOPS-2025
