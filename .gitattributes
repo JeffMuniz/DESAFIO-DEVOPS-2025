@@ -1,2 +1,17 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Forçar LF como final de linha para todos os arquivos de texto
+* text=auto eol=lf
+
+# Arquivos específicos
+*.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.Dockerfile text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+*.txt text eol=lf

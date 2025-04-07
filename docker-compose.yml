@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  app-flask:
+    build: ./app-flask
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+
+  app-node:
+    build: ./app-node
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_HOST=redis
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./grafana:/var/lib/grafana"
