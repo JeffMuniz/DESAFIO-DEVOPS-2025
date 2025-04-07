@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,29 +7,82 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>Desafio DevOps 2025 – Flask</h1>
+  <div class="top-nav">
+    <a href="/hello">/hello</a>
+    <a href="/time">/time</a>
+    <a href="/metrics">/metrics</a>
+    <a href="https://desafio-devops-2025-jhsa.onrender.com" target="_blank">Render Live</a>
+  </div>
 
-    <p>Esta aplicação é parte do desafio técnico. Veja as rotas disponíveis:</p>
+  <div class="container">
+    <h1>Desafio DevOps 2025 – Aplicações com Cache, Observabilidade e Infraestrutura Automatizada</h1>
+
+    <p><strong>Objetivo:</strong> Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.</p>
+
+    <h2>Aplicações</h2>
+    <h3>App 1 – Python + Flask</h3>
     <ul>
-      <li><a href="/hello">/hello</a> – Texto fixo</li>
-      <li><a href="/time">/time</a> – Hora do servidor (cache 10s)</li>
-      <li><a href="/metrics">/metrics</a> – Métricas Prometheus</li>
+      <li>/hello – Retorna texto fixo "Hello from Flask!"</li>
+      <li>/time – Hora atual do servidor (TTL: 10s)</li>
     </ul>
 
-    <hr/>
-    <h2>README.md</h2>
-    <pre><code>
-# Desafio DevOps 2025
+    <h3>App 2 – Node.js + Express</h3>
+    <ul>
+      <li>/hello – Retorna texto fixo "Hello from Node.js!"</li>
+      <li>/time – Hora atual do servidor (TTL: 60s)</li>
+    </ul>
 
-Este projeto contém duas aplicações em linguagens distintas (Flask e Node.js), cada uma com rotas para texto fixo e hora do servidor, integradas ao Redis com cache expirado e monitoradas via Prometheus e Grafana.
+    <h2>Cache</h2>
+    <p>Implementado com Redis. Cada app utiliza um cliente próprio para TTL independente (10s e 60s).</p>
 
-- Flask: http://localhost:5000
-- Node.js: http://localhost:3000
+    <h2>Observabilidade</h2>
+    <ul>
+      <li>Prometheus coleta métricas das aplicações e do Redis</li>
+      <li>Grafana exibe painéis com estatísticas das rotas acessadas e cache hits</li>
+      <li>Apps expõem métricas em <code>/metrics</code></li>
+    </ul>
 
-Como rodar:
+    <h2>Acesse tudo pronto no Render</h2>
+    <p><em>Como um extra, está publicado no Render. Pode levar 1–2 minutos para acordar:</em></p>
+    <a href="https://desafio-devops-2025-jhsa.onrender.com" target="_blank">https://desafio-devops-2025-jhsa.onrender.com</a>
+
+    <h2>Como rodar localmente</h2>
+    <pre><code>git clone https://github.com/JeffMuniz/devops-desafio-2025.git && cd devops-desafio-2025
 docker-compose up -d
+
+# Restart com build
+docker-compose up -d --build
     </code></pre>
+
+    <h2>Redis</h2>
+    <p>Acesse: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+    <ul>
+      <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
+      <li>Observar TTL, editar e apagar</li>
+    </ul>
+
+    <h2>Validação das Rotas</h2>
+    <h3>App 1 – Flask (localhost:5000)</h3>
+    <ul>
+      <li><a href="/hello">/hello</a>: Texto fixo</li>
+      <li><a href="/time">/time</a>: Hora com cache de 10s</li>
+      <li><a href="/">/</a>: Página com hora atual</li>
+      <li><a href="/metrics">/metrics</a>: Métricas Prometheus</li>
+    </ul>
+
+    <h3>App 2 – Node.js (localhost:3000)</h3>
+    <ul>
+      <li><a href="http://localhost:3000/hello">/hello</a>: Texto fixo</li>
+      <li><a href="http://localhost:3000/time">/time</a>: Hora com cache de 60s</li>
+      <li><a href="http://localhost:3000/">/</a>: Página com hora atual</li>
+      <li><a href="http://localhost:3000/metrics">/metrics</a>: Métricas Prometheus</li>
+    </ul>
+
+    <h2>Senha do Grafana</h2>
+    <p>Usuário: <strong>admin</strong><br>Senha: <strong>admin</strong></p>
+    <p>Configuração por variáveis de ambiente:</p>
+    <pre><code>GF_SECURITY_ADMIN_USER=admin
+GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
   </div>
 </body>
 </html>
