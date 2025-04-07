@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Este projeto apresenta duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.
+Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.
 
 ## Aplicações
 
@@ -18,7 +18,7 @@ Este projeto apresenta duas aplicações simples (em Python e Node.js) com rotas
 - `/time`: Retorna a hora atual do servidor
 - Cache TTL: 60 segundos
 
-## 🔁Cache
+## Cache
 
 Implementado com Redis.  
 Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
