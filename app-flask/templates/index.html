@@ -8,14 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Desafio DevOps 2025 – Aplicações com Cache, Observabilidade e Infraestrutura Automatizada</h1>
+    <h1>Desafio DevOps 2025</h1>
 
-    <p><strong>Objetivo:</strong> Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.</p>
+    <p><strong>Objetivo:</strong> Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes
+        tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.</p>
+
+    <li><a href="http://localhost:5000/">/</a>: Essa página Home</li>
 
     <h2>Validação das Rotas</h2>
     <h3>App 1 – Flask (localhost:5000)</h3>
     <ul>
-      <li><a href="http://localhost:5000/">/</a>: Essa página Home</li>
+
       <li><a href="http://localhost:5000/hello">/hello</a>: Texto fixo</li>
       <li><a href="http://localhost:5000/time">/time</a>: Hora com cache de 10s</li>
       <li><a href="http://localhost:5000/metrics">/metrics</a>: Métricas Prometheus</li>
@@ -23,7 +26,6 @@
     
     <h3>App 2 – Node.js (localhost:3000)</h3>
     <ul>
-      <li><a href="http://localhost:3002/">/</a>: Essa página Home</li>
       <li><a href="http://localhost:3002/hello">/hello</a>: Texto fixo</li>
       <li><a href="http://localhost:3002/time">/time</a>: Hora com cache de 60s</li>
       <li><a href="http://localhost:3002/metrics">/metrics</a>: Métricas Prometheus</li>
@@ -33,6 +35,9 @@
     <ul>
       <li>Grafana (porta <strong>3000</strong>): <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
       <li>Prometheus (porta <strong>9090</strong>): <a href="http://localhost:9090" target="_blank">http://localhost:9090</a></li>
+      <li>Prometheus coleta métricas das aplicações e do Redis</li>
+      <li>Grafana exibe painéis com estatísticas das rotas acessadas e cache hits</li>
+      <li>Apps expõem métricas em <code>/metrics</code></li>
     </ul>
 
     <h2>Cache Redis</h2>
@@ -43,13 +48,6 @@
     <ul>
       <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
       <li>Observar TTL, editar e apagar</li>
-    </ul>
-
-    <h2>Observabilidade</h2>
-    <ul>
-      <li>Prometheus coleta métricas das aplicações e do Redis</li>
-      <li>Grafana exibe painéis com estatísticas das rotas acessadas e cache hits</li>
-      <li>Apps expõem métricas em <code>/metrics</code></li>
     </ul>
 
     <h2>Acesse tudo pronto no Render</h2>
@@ -88,13 +86,7 @@ GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
       <li><a href="#">/hello</a>: Texto fixo (não exposto)</li>
       <li><a href="#">/time</a>: Hora com cache de 60s (não exposto)</li>
       <li><a href="#">/metrics</a>: Métricas Prometheus (não exposto)</li>
-    </ul>
-    <p><em>❗ A aplicação Node.js não está exposta como Web Service no Render. Rotas não acessíveis externamente.</em></p>
 
-
-
-    <h3>Observabilidade (Render)</h3>
-    <ul>
       <li>Grafana e Prometheus não estão publicados via rota pública externa por segurança</li>
       <li>Apenas a aplicação Flask está exposta (porta padrão 5000 → HTTP)</li>
     </ul>
