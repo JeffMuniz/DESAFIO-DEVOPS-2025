@@ -27,7 +27,7 @@ services:
   app-node:
     build: ./app-node
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - REDIS_HOST=redis
 
