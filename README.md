@@ -34,6 +34,11 @@ Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
 ```bash
 git clone https://github.com/JeffMuniz/devops-desafio-2025.git && cd devops-desafio-2025
 docker-compose up -d
+
+Restart
+docker-compose up -d --build app-node
+docker-compose up -d --build app-flask
+
 ```
 
 ## Acessar:
