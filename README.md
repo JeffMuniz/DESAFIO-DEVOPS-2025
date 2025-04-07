@@ -26,12 +26,12 @@ Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
 ## Observabilidade
 
 - Prometheus coleta métricas das aplicações e do Redis
-- Grafana exibe painéis com estatísticas das rotas acessadas e cache hits
+- Grafana exibe paineis com estatísticas das rotas acessadas e cache hits
 - Apps expõem métricas em `/metrics`
 
 ## Acesse tudo pronto no Render
 
-- Como um extra eu adicinei ao render, pode levar 1 ou 2 minutos pra subir o serviço!
+- Como um extra eu adicionei ao render, pode levar 1 ou 2 minutos pra subir o serviço!
 
 <https://desafio-devops-2025-jhsa.onrender.com/>
 
@@ -116,3 +116,4 @@ environment:
 
 - GF_SECURITY_ADMIN_USER=admin
 - GF_SECURITY_ADMIN_PASSWORD=admin
+

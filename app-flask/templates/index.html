@@ -35,10 +35,10 @@
       <li>Prometheus (porta <strong>9090</strong>): <a href="http://localhost:9090" target="_blank">http://localhost:9090</a></li>
     </ul>
 
-    <h2>Cache</h2>
+    <h2>Cache Redis</h2>
     <p>Implementado com Redis. Cada app utiliza um cliente próprio para TTL independente (10s e 60s).</p>
-
-    <h2>Redis</h2>
+    <p>REDIS_HOST=redis</p>
+    
     <p>Acesse localmente: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
     <ul>
       <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
@@ -71,13 +71,27 @@ docker-compose up -d --build
 GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
 
     <hr/>
-    <h2>🌐 Rotas públicas ativas no Render</h2>
+
+    <h2> Rotas públicas ativas no Render</h2>
+
+    <h3>App 1 – Flask (Render)</h3>
     <ul>
-      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/">/</a> ← Página inicial (Flask)</li>
-      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/hello">/hello</a></li>
-      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/time">/time</a></li>
-      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/metrics">/metrics</a></li>
+      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/">/</a>: Essa página Home</li>
+      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/hello">/hello</a>: Texto fixo</li>
+      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/time">/time</a>: Hora com cache de 10s</li>
+      <li><a href="https://desafio-devops-2025-jhsa.onrender.com/metrics">/metrics</a>: Métricas Prometheus</li>
     </ul>
+
+    <h3>App 2 – Node.js (não publicado no Render)</h3>
+    <ul>
+      <li><a href="#">/</a>: Página Home (não exposta)</li>
+      <li><a href="#">/hello</a>: Texto fixo (não exposto)</li>
+      <li><a href="#">/time</a>: Hora com cache de 60s (não exposto)</li>
+      <li><a href="#">/metrics</a>: Métricas Prometheus (não exposto)</li>
+    </ul>
+    <p><em>❗ A aplicação Node.js não está exposta como Web Service no Render. Rotas não acessíveis externamente.</em></p>
+
+
 
     <h3>Observabilidade (Render)</h3>
     <ul>
