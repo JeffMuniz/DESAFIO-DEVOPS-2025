@@ -108,5 +108,5 @@ Se quiser mudar, pode configurar com variáveis de ambiente:
 
 environment:
 
-- GF_SECURITY_ADMIN_USER=jeff
-- GF_SECURITY_ADMIN_PASSWORD=senhaforte
+- GF_SECURITY_ADMIN_USER=admin
+- GF_SECURITY_ADMIN_PASSWORD=admin
