@@ -30,4 +30,9 @@ app.get('/metrics', async (req, res) => {
   res.end(await promClient.register.metrics());
 });
 
+app.get('/', async (req, res) => {
+  const horaAtual = new Date().toLocaleString();
+  res.send(`Olá!! A hora em NodeJs é ${horaAtual}`);
+});
+
 app.listen(3000, () => console.log("Node app listening on 3000"));

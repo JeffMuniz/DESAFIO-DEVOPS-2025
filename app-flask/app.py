@@ -8,6 +8,12 @@ r = redis.Redis(host='redis', port=6379, decode_responses=True)
 
 hits = Counter('flask_hits_total', 'Total hits to Flask app')
 
+@app.route("/")
+def index():
+    hora_atual = time.ctime()
+    return f"Olá!! A hora em Python é {hora_atual}"
+
+
 @app.route("/hello")
 def hello():
     hits.inc()
@@ -26,3 +32,6 @@ def get_time():
 @app.route("/metrics")
 def metrics():
     return generate_latest(), 200, {'Content-Type': 'text/plain'}
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
