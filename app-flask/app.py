@@ -1,18 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 import redis, time
 import prometheus_client
 from prometheus_client import Counter, generate_latest
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 r = redis.Redis(host='redis', port=6379, decode_responses=True)
 
 hits = Counter('flask_hits_total', 'Total hits to Flask app')
 
 @app.route("/")
-def index():
-    hora_atual = time.ctime()
-    return f"Olá!! A hora em Python é {hora_atual}"
-
+def home():
+    return render_template("index.html")
 
 @app.route("/hello")
 def hello():

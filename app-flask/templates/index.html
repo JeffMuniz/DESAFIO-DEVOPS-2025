@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desafio DevOps 2025</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Desafio DevOps 2025 – Flask</h1>
+
+    <p>Esta aplicação é parte do desafio técnico. Veja as rotas disponíveis:</p>
+    <ul>
+      <li><a href="/hello">/hello</a> – Texto fixo</li>
+      <li><a href="/time">/time</a> – Hora do servidor (cache 10s)</li>
+      <li><a href="/metrics">/metrics</a> – Métricas Prometheus</li>
+    </ul>
+
+    <hr/>
+    <h2>README.md</h2>
+    <pre><code>
+# Desafio DevOps 2025
+
+Este projeto contém duas aplicações em linguagens distintas (Flask e Node.js), cada uma com rotas para texto fixo e hora do servidor, integradas ao Redis com cache expirado e monitoradas via Prometheus e Grafana.
+
+- Flask: http://localhost:5000
+- Node.js: http://localhost:3000
+
+Como rodar:
+docker-compose up -d
+    </code></pre>
+  </div>
+</body>
+</html>
