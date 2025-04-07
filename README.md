@@ -36,12 +36,29 @@ git clone https://github.com/JeffMuniz/devops-desafio-2025.git && cd devops-desa
 docker-compose up -d
 
 Restart
-docker-compose up -d --build app-node
-docker-compose up -d --build app-flask
+
+docker-compose up -d --build
+
 
 ```
 
-📌 **Validação das rotas – Desafio DevOps 2025**
+## Redis
+
+Acesse no navegador:
+
+ <http://localhost:8081>
+
+Você verá a interface web do Redis, onde pode:
+
+Ver as chaves (flask_time, node_time)
+
+Observar TTL
+
+Editar e apagar valores
+
+Visualizar expirados ou atuais
+
+## Validação das rotas – Desafio DevOps 2025
 
 Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatórias**, mais rotas extras úteis para debug e observabilidade.
 
@@ -69,7 +86,7 @@ Cada aplicação (Flask e Node.js) foi implementada com **duas rotas obrigatóri
 
 ---
 
-### Validação manual sugerida:
+### Validação manual sugerida
 
 - Acesse cada link acima e valide o conteúdo da resposta
 - Aguarde o tempo de expiração do cache (`10s` no Flask, `60s` no Node)
@@ -90,5 +107,6 @@ Senha: admin
 Se quiser mudar, pode configurar com variáveis de ambiente:
 
 environment:
-  - GF_SECURITY_ADMIN_USER=jeff
-  - GF_SECURITY_ADMIN_PASSWORD=senhaforte
+
+- GF_SECURITY_ADMIN_USER=jeff
+- GF_SECURITY_ADMIN_PASSWORD=senhaforte
