@@ -76,7 +76,6 @@ Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatória
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
 | [`/hello`](http://localhost:5000/hello)   | GET    | Texto fixo                                     | `Hello from Python!`                         |
 | [`/time`](http://localhost:5000/time)     | GET    | Hora atual com cache de  10s  via Redis      | `Hora Pyhton` ou `(cache) ...` |
-| [`/`](http://localhost:5000/)            | GET    | (Extra) Hello + hora atual formatada            | `Olá!! A hora em Python é Tue Apr ...`      |
 | [`/metrics`](http://localhost:5000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `flask_hits_total`             |
 
 ---
@@ -87,7 +86,6 @@ Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatória
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
 | [`/hello`](http://localhost:3002/hello)   | GET    | Texto fixo                                     | `Hello from Node.js!`                       |
 | [`/time`](http://localhost:3002/time)     | GET    | Hora atual com cache de  60s  via Redis      | `Hora node` ou `(cache) ...` |
-| [`/`](http://localhost:3002/)            | GET    | (Extra) Hello + hora atual formatada            | `Hora em Java`    |
 | [`/metrics`](http://localhost:3002/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `node_hits_total`              |
 
 ---
