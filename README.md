@@ -98,8 +98,6 @@ Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatória
 - Aguarde o tempo de expiração do cache (`10s` no Flask, `60s` no Node)
 - Refaça a requisição e compare o valor retornado
 
-
-
 ## Senha do Grafana
 
 Por padrão, o container oficial do Grafana usa:
@@ -116,9 +114,6 @@ environment:
 - GF_SECURITY_ADMIN_PASSWORD=admin
 
 ## Diagrama da Arquitetura
-
-![Diagrama da Arquitetura](docs/arquitetura.png)
-
 
 A arquitetura é composta por dois serviços de aplicação (Flask e Node.js), um serviço de cache (Redis), ferramentas de observabilidade (Prometheus e Grafana), e Redis Commander para inspeção visual do cache.
 
@@ -155,3 +150,5 @@ graph LR
   B2 -->|/metrics| P
   P --> G
 
+PNG
+![Diagrama da Arquitetura](docs/arquitetura.png)
