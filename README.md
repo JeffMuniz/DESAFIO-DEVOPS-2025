@@ -8,7 +8,7 @@ Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache
 
 ### App 1 – Python + Flask
 
-- `/hello`: Retorna texto fixo "Hello from Flask!"
+- `/hello`: Retorna texto fixo "Hello from Python!"
 - `/time`: Retorna a hora atual do servidor
 - Cache TTL: 10 segundos
 
@@ -74,7 +74,7 @@ Cada aplicação (Flask e Node.js) foi implementada com  duas rotas obrigatória
 
 | Rota                   | Método | Função                                         | Exemplo de Resposta                         |
 |------------------------|--------|-----------------------------------------------|---------------------------------------------|
-| [`/hello`](http://localhost:5000/hello)   | GET    | Texto fixo                                     | `Hello from Flask!`                         |
+| [`/hello`](http://localhost:5000/hello)   | GET    | Texto fixo                                     | `Hello from Python!`                         |
 | [`/time`](http://localhost:5000/time)     | GET    | Hora atual com cache de  10s  via Redis      | `Hora Pyhton` ou `(cache) ...` |
 | [`/`](http://localhost:5000/)            | GET    | (Extra) Hello + hora atual formatada            | `Olá!! A hora em Python é Tue Apr ...`      |
 | [`/metrics`](http://localhost:5000/metrics) | GET  | (Extra) Métricas Prometheus                     | Exposição de `flask_hits_total`             |

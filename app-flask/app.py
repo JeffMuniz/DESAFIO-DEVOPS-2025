@@ -15,7 +15,7 @@ def home():
 @app.route("/hello")
 def hello():
     hits.inc()
-    return "Hello from Flask!"
+    return "Hello from Python!"
 
 @app.route("/time")
 def get_time():
