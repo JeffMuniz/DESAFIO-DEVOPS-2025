@@ -7,6 +7,16 @@ services:
     ports:
       - "6379:6379"
 
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
+
+
   app-flask:
     build: ./app-flask
     ports:
@@ -17,7 +27,7 @@ services:
   app-node:
     build: ./app-node
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - REDIS_HOST=redis
 
@@ -31,6 +41,6 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - "3001:3000"
+      - "3000:3000"
     volumes:
       - ./grafana:/var/lib/grafana"
