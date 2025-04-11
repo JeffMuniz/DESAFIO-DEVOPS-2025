@@ -14,10 +14,10 @@
         tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.</p>
 
     
-    <li><a href="https://github.com/JeffMuniz/DESAFIO-DEVOPS-2025">/</a>: Essa página Home</li>
-    <li><a href="http://localhost:5000/">/</a>: Essa página Home</li>
+    <li><a href="https://github.com/JeffMuniz/DESAFIO-DEVOPS-2025">Projeto no Github</a></li>
 
     <h2>Validação das Rotas</h2>
+    <li><a href="http://localhost:5000/">/</a>: Essa página Home</li>
     <h3>App 1 – Flask (localhost:5000)</h3>
     <ul>
 
@@ -35,17 +35,17 @@
 
     <h3>Observabilidade local</h3>
     <ul>
-      <li>Grafana (porta <strong>3000</strong>): <a href="http://localhost:3002" target="_blank">http://localhost:3002</a></li>
+      <li>Grafana (porta <strong>3000</strong>): <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
       <li>Prometheus (porta <strong>9090</strong>): <a href="http://localhost:9090" target="_blank">http://localhost:9090</a></li>
       <li>Prometheus coleta métricas das aplicações e do Redis</li>
       <li>Grafana exibe painéis com estatísticas das rotas acessadas e cache hits</li>
       <li>aplicações expõem métricas em <code>/metrics</code></li>
     </ul>
 
-    <h2>Cache Redis</h2>
+    <h2>Cache Server</h2>
     <p>Implementado com Redis. Cada app utiliza um cliente próprio para TTL independente (10s e 60s).</p>
     <p>REDIS_HOST=redis</p>
-    
+    <p>Acesse localmente: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
 
     <h2>Como rodar localmente</h2>
     <pre><code>git clone https://github.com/JeffMuniz/devops-desafio-2025.git && cd devops-desafio-2025
@@ -59,7 +59,7 @@ docker-compose up -d --build
     <p>Usuário: <strong>admin</strong><br>Senha: <strong>admin</strong></p>
     <p>Configuração por variáveis de ambiente para alterar:</p>
     <pre><code>GF_SECURITY_ADMIN_USER=admin GF_SECURITY_ADMIN_PASSWORD=admin</code></pre>
-    <p>Acesse localmente: <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+
     <ul>
       <li>Ver chaves (<code>flask_time</code>, <code>node_time</code>)</li>
       <li>Observar TTL, editar e apagar</li>
