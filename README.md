@@ -1,10 +1,42 @@
 # Desafio DevOps 2025 – Aplicações com Cache, Observabilidade e Infraestrutura Automatizada
 
-## Depois de rodar o projeto acesse o Grafana e veja o dashboard pronto automagicamente.
-
 ## Objetivo
 
 Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.
+
+## Acesse a interface web do projeto
+
+Após subir o projeto com `docker-compose up -d`, acesse:
+
+http://localhost:5000/
+
+Essa é a **interface visual principal** do projeto, feita em HTML+CSS (estilo Matrix ), que resume:
+
+- Rotas disponíveis em Flask e Node.js
+- Links diretos para Grafana, Prometheus e Redis Commander
+- Comando de deploy
+- Credenciais de acesso
+
+---
+
+## Gere métricas para visualização no Grafana
+
+Após abrir a home, acesse manualmente as rotas:
+
+- `http://localhost:5000/hello` → gera `flask_hits_total`
+- `http://localhost:3002/hello` → gera `node_hits_total`
+- `http://localhost:5000/time` e `:3002/time` → cache + hit
+
+Acesse o Grafana:
+
+http://localhost:3000
+
+E no primeiro acesso coloque uma senha nova
+
+Login padrão:
+
+- Usuário: `admin`
+- Senha: `admin`
 
 ## Aplicações
 
@@ -30,8 +62,6 @@ Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
 - Prometheus coleta métricas das aplicações e do Redis
 - Grafana exibe paineis com estatísticas das rotas acessadas e cache hits
 - Apps expõem métricas em `/metrics`
-
-
 
 ## Como rodar
 
@@ -116,7 +146,7 @@ A arquitetura é composta por dois serviços de aplicação (Flask e Node.js), u
 PNG
 ![Diagrama da Arquitetura](docs/arquitetura.png)
 
-## !! Em Construção!!
+## !! Em Construção
 
 ## Acesse tudo pronto no Render
 
