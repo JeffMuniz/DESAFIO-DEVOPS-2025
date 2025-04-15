@@ -1,0 +1,16 @@
+# Grafana state DB - não versionar!
+grafana/grafana.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Docker
+.env
+docker-compose.override.yml
+
+# Node/JS ou Python, se aplicável
+node_modules/
+__pycache__/
+venv/
+dist/
