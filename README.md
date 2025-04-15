@@ -115,38 +115,5 @@ environment:
 
 A arquitetura é composta por dois serviços de aplicação (Flask e Node.js), um serviço de cache (Redis), ferramentas de observabilidade (Prometheus e Grafana), e Redis Commander para inspeção visual do cache.
 
-```mermaid
-graph LR
-  subgraph Usuário
-    A[Navegador]
-  end
-
-  subgraph Apps
-    B1[Flask App<br>porta 5000]
-    B2[Node.js App<br>porta 3002]
-  end
-
-  subgraph Cache
-    R[Redis<br>porta 6379]
-    RC[Redis Commander<br>porta 8081]
-  end
-
-  subgraph Observabilidade
-    P[Prometheus<br>porta 9090]
-    G[Grafana<br>porta 3000]
-  end
-
-  A --> B1
-  A --> B2
-
-  B1 -->|/time| R
-  B2 -->|/time| R
-
-  R --> RC
-
-  B1 -->|/metrics| P
-  B2 -->|/metrics| P
-  P --> G
-
 PNG
 ![Diagrama da Arquitetura](docs/arquitetura.png)
