@@ -11,4 +11,5 @@ docker buildx prune --all --force
 
 Remove-Item -Path "grafana/grafana.db" -Force
 
+Remove-Item -Path "grafana/data/grafana.db" -Force
 docker-compose up -d --build
