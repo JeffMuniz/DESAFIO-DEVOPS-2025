@@ -1,0 +1,66 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "DevOps 2025 \u2013 M\u00e9tricas Flask & Node",
+    "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "5s",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Hits na API Flask",
+        "targets": [
+          {
+            "expr": "flask_hits_total",
+            "legendFormat": "Flask - Hits totais",
+            "interval": ""
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "type": "graph",
+        "title": "Hits na API Node.js",
+        "targets": [
+          {
+            "expr": "node_hits_total",
+            "legendFormat": "Node - Hits totais",
+            "interval": ""
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "type": "table",
+        "title": "Status atual das m\u00e9tricas",
+        "targets": [
+          {
+            "expr": "flask_hits_total or node_hits_total",
+            "format": "table"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": {
+          "x": 0,
+          "y": 9,
+          "w": 24,
+          "h": 6
+        }
+      }
+    ]
+  },
+  "overwrite": true
+}
