@@ -12,8 +12,7 @@
       "targets": [
         {
           "expr": "flask_hits_total",
-          "legendFormat": "Flask - Hits totais",
-          "interval": ""
+          "legendFormat": "Flask - Hits totais"
         }
       ],
       "datasource": "Prometheus",
@@ -25,24 +24,11 @@
       "targets": [
         {
           "expr": "node_hits_total",
-          "legendFormat": "Node - Hits totais",
-          "interval": ""
+          "legendFormat": "Node - Hits totais"
         }
       ],
       "datasource": "Prometheus",
       "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
-    },
-    {
-      "type": "table",
-      "title": "Status atual das métricas",
-      "targets": [
-        {
-          "expr": "flask_hits_total or node_hits_total",
-          "format": "table"
-        }
-      ],
-      "datasource": "Prometheus",
-      "gridPos": { "x": 0, "y": 9, "w": 24, "h": 6 }
     }
   ]
 }
