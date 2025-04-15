@@ -19,6 +19,7 @@ services:
 
   app-flask:
     build: ./app-flask
+    container_name: app-flask
     ports:
       - "5000:5000"
     environment:
@@ -28,6 +29,7 @@ services:
 
   app-node:
     build: ./app-node
+    container_name: app-node
     ports:
       - "3002:3000"
     environment:
@@ -37,6 +39,7 @@ services:
 
   prometheus:
     image: prom/prometheus
+    container_name: prometheus
     ports:
       - "9090:9090"
     volumes:
@@ -44,16 +47,18 @@ services:
 
   grafana:
     image: grafana/grafana
+    container_name: grafana
     ports:
       - "3000:3000"
     volumes:
-      - ./grafana/data:/var/lib/grafana                             # dados persistentes
-      - ./grafana/provisioning:/etc/grafana/provisioning            # arquivos de provisionamento (datasources e dashboards)
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - prometheus
 
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
       - "80:80"
     volumes:

@@ -1,0 +1,34 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "datasource": "Prometheus",
+      "type": "graph",
+      "title": "Hits Flask App",
+      "targets": [
+        {
+          "expr": "flask_hits_total",
+          "legendFormat": "Flask",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": "Prometheus",
+      "type": "graph",
+      "title": "Hits Node App",
+      "targets": [
+        {
+          "expr": "node_hits_total",
+          "legendFormat": "Node",
+          "refId": "B"
+        }
+      ]
+    }
+  ],
+  "title": "Hits por App",
+  "uid": "hits-dashboard",
+  "version": 1
+}
