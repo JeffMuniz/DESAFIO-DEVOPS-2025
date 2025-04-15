@@ -1,5 +1,7 @@
 # Desafio DevOps 2025 – Aplicações com Cache, Observabilidade e Infraestrutura Automatizada
 
+## Depois de rodar o projeto acesse o Grafana e veja o dashboard pronto automagicamente.
+
 ## Objetivo
 
 Duas aplicações simples (em Python e Node.js) com rotas HTTP distintas e cache configurado com diferentes tempos de expiração. A infraestrutura é automatizada com Docker Compose e observabilidade via Prometheus e Grafana.
