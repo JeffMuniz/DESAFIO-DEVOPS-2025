@@ -31,11 +31,7 @@ Cada app utiliza um cliente próprio para TTL independente (10s e 60s).
 - Grafana exibe paineis com estatísticas das rotas acessadas e cache hits
 - Apps expõem métricas em `/metrics`
 
-## Acesse tudo pronto no Render
 
-- Como um extra eu adicionei ao render, pode levar 1 ou 2 minutos pra subir o serviço!
-
-<https://desafio-devops-2025-jhsa.onrender.com/>
 
 ## Como rodar
 
@@ -119,3 +115,11 @@ A arquitetura é composta por dois serviços de aplicação (Flask e Node.js), u
 
 PNG
 ![Diagrama da Arquitetura](docs/arquitetura.png)
+
+## !! Em Construção!!
+
+## Acesse tudo pronto no Render
+
+- Como um extra eu adicionei ao render, pode levar 1 ou 2 minutos pra subir o serviço!
+
+<https://desafio-devops-2025-jhsa.onrender.com/>
